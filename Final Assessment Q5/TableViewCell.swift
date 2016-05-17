@@ -16,7 +16,8 @@ class TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        iconImage.layer.cornerRadius = 44.5
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
