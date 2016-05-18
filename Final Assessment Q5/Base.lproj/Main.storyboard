@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UJg-ut-AUe" id="iKg-dQ-nN8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rK-56-K6B">
@@ -55,20 +55,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jVU-3r-cEX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pON-Fp-auY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pON-Fp-auY">
+                            <connections>
+                                <action selector="addDataBtn:" destination="sbR-Hh-3Rp" id="957-ub-yOO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="8MQ-Hc-fRS" kind="show" id="vxj-MB-KPz"/>
+                        <segue destination="8MQ-Hc-fRS" kind="show" identifier="showCamera" id="vxj-MB-KPz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5y-Hs-IfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="734" y="9"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="wlJ-Oq-bYC">
             <objects>
-                <viewController id="8MQ-Hc-fRS" sceneMemberID="viewController">
+                <viewController id="8MQ-Hc-fRS" customClass="CameraViewController" customModule="Final_Assessment_Q5" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fHH-ZC-fiS"/>
                         <viewControllerLayoutGuide type="bottom" id="S0v-9m-Zha"/>
@@ -76,8 +80,56 @@
                     <view key="view" contentMode="scaleToFill" id="5zT-6g-PiC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-mP-Qjg">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="EsZ-C1-bgZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="pmO-aM-qNi"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbw-BV-IRM">
+                                <rect key="frame" x="250" y="370" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4z-1N-FnD">
+                                <rect key="frame" x="258" y="420" width="85" height="30"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="confirmBtn:" destination="8MQ-Hc-fRS" eventType="touchUpInside" id="dNX-u7-KwX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBM-89-bEl">
+                                <rect key="frame" x="273" y="470" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fbw-BV-IRM" firstAttribute="centerX" secondItem="5zT-6g-PiC" secondAttribute="centerX" id="6pI-Ra-ODe"/>
+                            <constraint firstItem="C4z-1N-FnD" firstAttribute="centerX" secondItem="5zT-6g-PiC" secondAttribute="centerX" id="E14-n3-BmU"/>
+                            <constraint firstItem="nBM-89-bEl" firstAttribute="top" secondItem="C4z-1N-FnD" secondAttribute="bottom" constant="20" id="GOY-9K-xh3"/>
+                            <constraint firstItem="fbw-BV-IRM" firstAttribute="centerY" secondItem="5zT-6g-PiC" secondAttribute="centerY" id="QVn-1K-6Ee"/>
+                            <constraint firstItem="fbw-BV-IRM" firstAttribute="top" secondItem="TMP-mP-Qjg" secondAttribute="bottom" constant="20" id="Qe2-I1-GzO"/>
+                            <constraint firstItem="TMP-mP-Qjg" firstAttribute="centerX" secondItem="5zT-6g-PiC" secondAttribute="centerX" id="ZEb-XW-39k"/>
+                            <constraint firstItem="fbw-BV-IRM" firstAttribute="centerY" secondItem="5zT-6g-PiC" secondAttribute="centerY" id="gS6-ox-VX7"/>
+                            <constraint firstItem="TMP-mP-Qjg" firstAttribute="centerY" secondItem="5zT-6g-PiC" secondAttribute="centerY" id="hMe-fj-YVl"/>
+                            <constraint firstItem="nBM-89-bEl" firstAttribute="centerX" secondItem="5zT-6g-PiC" secondAttribute="centerX" id="mEw-an-60L"/>
+                            <constraint firstItem="C4z-1N-FnD" firstAttribute="top" secondItem="fbw-BV-IRM" secondAttribute="bottom" constant="20" id="u7Z-C2-y2U"/>
+                            <constraint firstItem="fbw-BV-IRM" firstAttribute="width" secondItem="TMP-mP-Qjg" secondAttribute="width" id="yhF-5D-JtS"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QVn-1K-6Ee"/>
+                                <exclude reference="gS6-ox-VX7"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="cameraImage" destination="TMP-mP-Qjg" id="tSv-dg-xTd"/>
+                        <outlet property="dataTextfield" destination="fbw-BV-IRM" id="Ihs-Jq-AGV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8M0-dx-TeU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

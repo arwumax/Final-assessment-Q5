@@ -49,6 +49,13 @@ class MainTableViewController: UITableViewController {
         
     }
     
+    @IBAction func addDataBtn(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("showCamera", sender: nil)
+        
+    }
+    
+    
     
 
     /*
